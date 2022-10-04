@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.Integer?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="view.MainWindow">
+    <fx:define>
+        <Integer fx:id="minus1" fx:value="-1"/>
+    </fx:define>
+    <center>
+        <SplitPane dividerPositions="0.3">
+            <ListView fx:id="butterfliesLV"/>
+            <VBox disable="${butterfliesLV.selectionModel.selectedIndex == minus1}" spacing="5.0">
+                <TextField fx:id="butterflyTF" promptText="name"/>
+                <AnchorPane>
+                    <ListView fx:id="colorsLV" items="${butterfliesLV.selectionModel.selectedItem.colors}"
+                              AnchorPane.bottomAnchor="0.0"
+                              AnchorPane.topAnchor="0.0"
+                              AnchorPane.rightAnchor="0.0"
+                              AnchorPane.leftAnchor="0.0"/>
+                    <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
+                    </padding>
+                </AnchorPane>
+                <HBox spacing="5">
+                    <ColorPicker fx:id="colorPicker"/>
+                    <Button disable="${colorsLV.selectionModel.selectedIndex == minus1}"
+                            onAction="#clickAddColors" text="Add colors"/>
+                    <Button disable="${colorsLV.selectionModel.selectedIndex == minus1}"
+                            onAction="#clickUnselectColor" text="Unselect"/>
+                    <Button disable="${colorsLV.selectionModel.selectedIndex == minus1}"
+                            onAction="#clickRemoveColor" text="Remove color"/>
+                </HBox>
+            </VBox>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </SplitPane>
+    </center>
+    <top>
+        <MenuBar>
+            <Menu text="Butterflies">
+                <MenuItem onAction="#clickAddButterfly" text="Add"/>
+                <MenuItem onAction="#clickRemoveButterfly" text="Delete"/>
+                <SeparatorMenuItem/>
+                <MenuItem onAction="#clickQuit" text="Quit"/>
+            </Menu>
+        </MenuBar>
+    </top>
+</BorderPane>

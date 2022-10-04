@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <VBox>
+        <HBox alignment="CENTER_LEFT">
+            <Label text="name: "/>
+            <TextField fx:id="nameTF"/>
+        </HBox>
+        <FlowPane alignment="CENTER" hgap="10.0">
+            <Button defaultButton="true" onAction="#clickConfirm" text="OK"/>
+            <Button cancelButton="true" onAction="#clickCancel" text="Cancel"/>
+        </FlowPane>
+    </VBox>
+</AnchorPane>
