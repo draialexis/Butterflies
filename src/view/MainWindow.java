@@ -105,11 +105,11 @@ public class MainWindow {
         addListenerButterfliesLV();
         addListenerColorsLV();
 
-        setCellFatoryButterfliesLV();
-        setCellFatoryColorsLV();
+        setCellFactoryButterfliesLV();
+        setCellFactoryColorsLV();
     }
 
-    private void setCellFatoryButterfliesLV() {
+    private void setCellFactoryButterfliesLV() {
         butterfliesLV.setCellFactory(__ -> new ListCell<>() {
             @Override
             protected void updateItem(Butterfly item, boolean empty) {
@@ -126,7 +126,7 @@ public class MainWindow {
         });
     }
 
-    private void setCellFatoryColorsLV() {
+    private void setCellFactoryColorsLV() {
         colorsLV.setCellFactory(__ -> new ListCell<>() {
             @Override
             protected void updateItem(Color item, boolean empty) {

@@ -1,6 +1,5 @@
 package data;
 
-import model.Butterfly;
 import model.ButterflyManager;
 
 public class Stub implements Loadable<ButterflyManager> {
