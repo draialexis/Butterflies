@@ -33,9 +33,9 @@ public class MainWindow {
         if (colorPicker.getValue() != null) {
             butterfliesLV.getSelectionModel()
                          .getSelectedItem()
-                         .addColor((int) (colorPicker.getValue().getRed()),
-                                   (int) (colorPicker.getValue().getGreen()),
-                                   (int) (colorPicker.getValue().getBlue()));
+                         .addColor((int) (colorPicker.getValue().getRed() * 255),
+                                   (int) (colorPicker.getValue().getGreen() * 255),
+                                   (int) (colorPicker.getValue().getBlue()) * 255);
         }
     }
 
@@ -61,13 +61,10 @@ public class MainWindow {
         Stage creationWindowStage = new Stage();
         creationWindowStage.initOwner(butterfliesLV.getScene().getWindow());
         creationWindowStage.initModality(Modality.WINDOW_MODAL);
-
         CreationWindow controller = initCreationWindow(creationWindowStage);
-
         if (controller.getButterflyName() != null) {
             mgr.addButterfly(controller.getButterflyName());
         }
-
     }
 
     private CreationWindow initCreationWindow(Stage creationWindowStage) {
@@ -76,10 +73,9 @@ public class MainWindow {
         loader.setController(controller);
         try {
             creationWindowStage.setScene(new Scene(loader.load()));
+            creationWindowStage.showAndWait();
         } catch (IOException ex) {
-            new Alert(Alert.AlertType.ERROR,
-                      "error while opening creation window",
-                      ButtonType.OK).setHeaderText(null);
+            new Alert(Alert.AlertType.ERROR, "error while opening creation window", ButtonType.OK).setHeaderText(null);
         }
         return controller;
     }

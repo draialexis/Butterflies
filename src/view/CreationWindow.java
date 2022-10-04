@@ -27,6 +27,6 @@ public class CreationWindow {
     }
 
     public String getButterflyName() {
-        return null;
+        return butterflyName;
     }
 }

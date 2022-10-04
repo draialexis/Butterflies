@@ -27,7 +27,7 @@
                 </AnchorPane>
                 <HBox spacing="5">
                     <ColorPicker fx:id="colorPicker"/>
-                    <Button disable="${colorsLV.selectionModel.selectedIndex == minus1}"
+                    <Button disable="${colorsLV.selectionModel.selectedIndex != minus1}"
                             onAction="#clickAddColors" text="Add colors"/>
                     <Button disable="${colorsLV.selectionModel.selectedIndex == minus1}"
                             onAction="#clickUnselectColor" text="Unselect"/>
@@ -44,7 +44,8 @@
         <MenuBar>
             <Menu text="Butterflies">
                 <MenuItem onAction="#clickAddButterfly" text="Add"/>
-                <MenuItem onAction="#clickRemoveButterfly" text="Delete"/>
+                <MenuItem disable="${butterfliesLV.selectionModel.selectedIndex == minus1}"
+                          onAction="#clickRemoveButterfly" text="Delete"/>
                 <SeparatorMenuItem/>
                 <MenuItem onAction="#clickQuit" text="Quit"/>
             </Menu>
